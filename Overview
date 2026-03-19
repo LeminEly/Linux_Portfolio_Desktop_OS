@@ -1,0 +1,205 @@
+🖥️ Linux Portfolio Desktop — Project Overview
+🌍 Concept
+
+Linux Portfolio Desktop is a web-based interactive simulation of a Linux desktop environment (GNOME-style), inspired by Kali Linux and Debian-based systems.
+
+Instead of a traditional portfolio website, the entire user experience is transformed into a realistic desktop operating system inside the browser. Users interact with the interface as if they were using a real computer.
+
+The goal is to present a personal profile in a fun, immersive, and highly interactive way, where exploring the desktop reveals information about the developer (not heavy projects, but personal profile content such as CV, skills, and identity).
+
+🎯 Main Idea
+
+The user enters a website.
+
+They are welcomed by a Linux GNOME/Kali-style desktop environment.
+
+They can interact with the system like a real OS:
+
+Open folders
+
+Open a CV (PDF viewer)
+
+Use a terminal
+
+Browse profile information
+
+Everything is simulated but feels like a real operating system.
+
+👉 It is basically:
+“My PC desktop, but inside a browser as my portfolio.”
+
+🧠 Key Philosophy
+
+Minimal traditional website pages
+
+Maximum interaction and immersion
+
+Portfolio = Operating System experience
+
+Focus on UI/UX realism, not heavy backend logic
+
+Lightweight but visually powerful
+
+🧩 Core Features
+🖥️ Desktop Environment
+
+GNOME-style UI (or Kali Linux inspired look)
+
+Wallpaper background
+
+Top bar (time, system icons)
+
+Dock / taskbar
+
+🪟 Window System
+
+Draggable windows
+
+Resizable windows
+
+Minimize / maximize / close
+
+Multi-window support (like real OS)
+
+📂 File Explorer Simulation
+
+Folder structure like a Linux system:
+
+/home/user/
+
+Documents
+
+Profile
+
+Clicking files opens:
+
+CV (PDF viewer)
+
+About Me section
+
+Skills info
+
+💻 Terminal (Kali-inspired)
+
+Fake Linux terminal using xterm.js
+
+Commands like:
+
+whoami
+
+skills
+
+about
+
+contact
+
+Returns personal portfolio data in a hacker-style UI
+
+👤 Portfolio Content (NOT heavy projects)
+
+This system mainly contains:
+
+Personal introduction
+
+CV (PDF or web view)
+
+Skills
+
+Contact information
+
+Simple profile details
+
+👉 Not a project showcase platform, but a profile OS
+
+⚙️ Technical Architecture
+🧱 Frontend (Core)
+
+Next.js (React) → application framework
+
+TypeScript → type safety and scalability
+
+🎨 UI / Design Layer
+
+Tailwind CSS → fast styling
+
+shadcn/ui → modern UI components
+
+Lucide / Phosphor icons → clean system icons
+
+🧠 State Management (Desktop Engine)
+
+Zustand → manage:
+
+open windows
+
+active apps
+
+desktop state
+
+🪟 Window System
+
+react-rnd or dnd-kit:
+
+drag windows
+
+resize windows
+
+handle layering (z-index)
+
+💻 Terminal System
+
+xterm.js
+
+custom command parser:
+
+maps commands → profile data responses
+
+
+✨ Animations
+
+Framer Motion → UI transitions (open/close windows)
+
+GSAP (optional) → boot screen / advanced effects
+
+
+🎨 UX / Design Goals
+
+Must feel like a real Linux desktop
+
+Smooth animations (no lag)
+
+Real OS interaction feeling
+
+Clean GNOME/Kali aesthetic
+
+Dark mode default (hacker vibe)
+
+Highly immersive experience
+
+
+🎯 Purpose
+
+Creative portfolio presentation
+
+Showcase frontend + UI/UX skills
+
+Demonstrate ability to build complex interactive interfaces
+
+Stand out from traditional portfolio websites
+
+Provide memorable “desktop experience” for visitors
+
+
+🔥 Final Vision
+
+When someone opens the site:
+
+They don’t see a website…
+They see a real Linux desktop
+and they explore a developer’s identity like they are using his personal computer.
+
+🧠 Summary (1 sentence)
+
+A fully interactive Linux GNOME-style desktop simulation in the browser that transforms a developer portfolio into an immersive operating system experience.
+
+
