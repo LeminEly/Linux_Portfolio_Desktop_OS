@@ -120,6 +120,7 @@ body,
   background: #000;
   display: flex;
   flex-direction: column;
+  /* Logo phase: centered — logs phase: top-left via .boot-logs override */
   align-items: center;
   justify-content: center;
   font-family: var(--font-mono);
@@ -163,23 +164,43 @@ body,
   }
 }
 
+/* Real Linux TTY style — text anchored top-left, no centering */
 .boot-logs {
-  font-size: 11px;
-  color: #888;
-  max-width: 700px;
-  width: 90%;
-  margin-top: 24px;
-  line-height: 1.6;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  color: #c0c0c0;
+  line-height: 1.45;
+  overflow: hidden;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background: #000;
 }
 
 .boot-log-ok {
-  color: var(--kali-green);
-  font-weight: 600;
+  color: #00cc44;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.boot-log-failed {
+  color: #f55353;
+  font-weight: 700;
 }
 
 .boot-log-line {
+  display: block;
+  width: 100%;
+  white-space: pre;
   opacity: 0;
-  animation: boot-fade-in 0.15s forwards;
+  animation: boot-fade-in 0.05s forwards;
 }
 
 @keyframes boot-fade-in {

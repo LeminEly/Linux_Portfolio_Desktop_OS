@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const BOOT_LOGS = [
@@ -36,16 +36,53 @@ interface BootSequenceProps {
     onComplete: () => void;
 }
 
+/** Render a single boot log line with correct TTY colors */
+const BootLine: React.FC<{ log: string }> = ({ log }) => {
+    if (log === '') {
+        return <span>&nbsp;</span>;
+    }
+    if (log.startsWith('[  OK  ]')) {
+        return (
+            <>
+                <span style={{ color: '#00cc44', fontWeight: 700 }}>[  OK  ]</span>
+                <span style={{ color: '#c0c0c0' }}>{log.slice(8)}</span>
+            </>
+        );
+    }
+    if (log.startsWith('[FAILED]')) {
+        return (
+            <>
+                <span style={{ color: '#f55353', fontWeight: 700 }}>[FAILED]</span>
+                <span style={{ color: '#c0c0c0' }}>{log.slice(8)}</span>
+            </>
+        );
+    }
+    if (log.startsWith('::')) {
+        return <span style={{ color: '#55b4d4' }}>{log}</span>;
+    }
+    if (log.startsWith('         Starting') || log.startsWith('         Mounted')) {
+        return <span style={{ color: '#888' }}>{log}</span>;
+    }
+    // First line — hostname/version
+    if (log.startsWith('Kali GNU')) {
+        return <span style={{ color: '#d0d0d0', fontWeight: 600 }}>{log}</span>;
+    }
+    // personal message
+    if (log === 'Elhamdullah for every thing') {
+        return <span style={{ color: '#f5a623' }}>{log}</span>;
+    }
+    return <span style={{ color: '#aaa' }}>{log}</span>;
+};
+
 const BootSequence: React.FC<BootSequenceProps> = ({ onComplete }) => {
     const [logs, setLogs] = useState<string[]>([]);
     const [showLogo, setShowLogo] = useState(true);
+    const bottomRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        // Show logo for 1.5 seconds, then start boot logs
         const logoTimer = setTimeout(() => {
             setShowLogo(false);
         }, 1500);
-
         return () => clearTimeout(logoTimer);
     }, []);
 
@@ -56,15 +93,20 @@ const BootSequence: React.FC<BootSequenceProps> = ({ onComplete }) => {
         const interval = setInterval(() => {
             if (currentIndex >= BOOT_LOGS.length) {
                 clearInterval(interval);
-                setTimeout(onComplete, 7000);
+                setTimeout(onComplete, 2000);
                 return;
             }
             setLogs(prev => [...prev, BOOT_LOGS[currentIndex]]);
             currentIndex++;
-        }, 150);
+        }, 120);
 
         return () => clearInterval(interval);
     }, [showLogo, onComplete]);
+
+    // Auto-scroll to bottom as lines appear
+    useEffect(() => {
+        bottomRef.current?.scrollIntoView({ behavior: 'instant' });
+    }, [logs]);
 
     return (
         <div className="boot-screen">
@@ -75,10 +117,10 @@ const BootSequence: React.FC<BootSequenceProps> = ({ onComplete }) => {
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0, scale: 1.1 }}
-                        transition={{ duration: 0.5 }}
+                        transition={{ duration: 0.4 }}
                         style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
                     >
-                        {/* Kali Dragon SVG Logo */}
+                        {/* Kali Logo */}
                         <svg
                             className="boot-logo"
                             viewBox="0 0 100 100"
@@ -94,7 +136,7 @@ const BootSequence: React.FC<BootSequenceProps> = ({ onComplete }) => {
                 ) : (
                     <motion.div
                         key="logs"
-                        initial={{ opacity: 0 }}
+                        initial={{ opacity: 1 }}
                         animate={{ opacity: 1 }}
                         className="boot-logs"
                     >
@@ -102,21 +144,13 @@ const BootSequence: React.FC<BootSequenceProps> = ({ onComplete }) => {
                             <div
                                 key={i}
                                 className="boot-log-line"
-                                style={{ animationDelay: `${i * 0.2}s` }}
                             >
-                                {log?.includes('[  OK  ]') ? (
-                                    <>
-                                        <span className="boot-log-ok">[  OK  ]</span>
-                                        {log.replace('[  OK  ] ', ' ')}
-                                    </>
-                                ) : (
-                                    <span style={{ color: log?.startsWith('::') ? '#49aee6' : '#888' }}>
-                                        {log}
-                                    </span>
-                                )}
+                                <BootLine log={log} />
                             </div>
                         ))}
-                        <span className="cursor-blink" style={{ color: '#888' }}>▊</span>
+                        {/* Blinking cursor at the end */}
+                        <span className="cursor-blink" style={{ color: '#c0c0c0' }}>▊</span>
+                        <div ref={bottomRef} />
                     </motion.div>
                 )}
             </AnimatePresence>
