@@ -84,7 +84,7 @@ const Desktop: React.FC = () => {
             <WindowManager />
 
             {/* Dock */}
-            <Dock totalWallpapers={WALLPAPERS.length} />
+            <Dock />
 
             {/* Quick Settings Panel */}
             <AnimatePresence>

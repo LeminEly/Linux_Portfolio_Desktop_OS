@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { PROJECTS } from '../../data/content';
 import {
     ArrowLeft, ChevronRight, RefreshCw, Globe, Github,
-    ExternalLink, X, Shield, Tag
+    Shield
 } from 'lucide-react';
 
 interface ProjectsAppProps {

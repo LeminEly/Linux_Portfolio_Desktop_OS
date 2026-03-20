@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { PROFILE, SKILLS, PROJECTS, TIMELINE } from '../../data/content';
+import { PROFILE, SKILLS, PROJECTS } from '../../data/content';
 import {
-    ArrowLeft, ChevronRight, RefreshCw, Globe, Lock,
-    Star, Shield, Github, Linkedin, MapPin, Mail
+    ArrowLeft, ChevronRight, RefreshCw, Lock,
+    Star, Github, Linkedin, Mail
 } from 'lucide-react';
 
 interface BrowserAppProps {
@@ -10,7 +10,7 @@ interface BrowserAppProps {
 }
 
 const BrowserApp: React.FC<BrowserAppProps> = () => {
-    const [url, setUrl] = useState(`${PROFILE.name.toLowerCase().replace(' ', '')}.dev`);
+    const [_url] = useState(`${PROFILE.name.toLowerCase().replace(' ', '')}.dev`);
 
     return (
         <div className="browser-app">
@@ -23,7 +23,7 @@ const BrowserApp: React.FC<BrowserAppProps> = () => {
                 </div>
                 <div className="browser-url">
                     <Lock size={12} style={{ color: 'var(--kali-green)' }} />
-                    <span>https://{url}</span>
+                    <span>https://{_url}</span>
                 </div>
                 <div style={{ display: 'flex', gap: 4 }}>
                     <button className="browser-nav-btn"><Star size={14} /></button>

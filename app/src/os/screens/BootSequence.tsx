@@ -38,6 +38,9 @@ interface BootSequenceProps {
 
 /** Render a single boot log line with correct TTY colors */
 const BootLine: React.FC<{ log: string }> = ({ log }) => {
+    // Defensive check
+    if (typeof log !== 'string') return null;
+
     if (log === '') {
         return <span>&nbsp;</span>;
     }
@@ -78,12 +81,18 @@ const BootSequence: React.FC<BootSequenceProps> = ({ onComplete }) => {
     const [logs, setLogs] = useState<string[]>([]);
     const [showLogo, setShowLogo] = useState(true);
     const bottomRef = useRef<HTMLDivElement>(null);
+    const mountedRef = useRef(true);
 
     useEffect(() => {
+        mountedRef.current = true;
         const logoTimer = setTimeout(() => {
-            setShowLogo(false);
+            if (mountedRef.current) setShowLogo(false);
         }, 1500);
-        return () => clearTimeout(logoTimer);
+
+        return () => {
+            mountedRef.current = false;
+            clearTimeout(logoTimer);
+        };
     }, []);
 
     useEffect(() => {
@@ -93,11 +102,15 @@ const BootSequence: React.FC<BootSequenceProps> = ({ onComplete }) => {
         const interval = setInterval(() => {
             if (currentIndex >= BOOT_LOGS.length) {
                 clearInterval(interval);
-                setTimeout(onComplete, 2000);
+                setTimeout(() => {
+                    if (mountedRef.current) onComplete();
+                }, 2000);
                 return;
             }
-            setLogs(prev => [...prev, BOOT_LOGS[currentIndex]]);
-            currentIndex++;
+            if (mountedRef.current) {
+                setLogs(prev => [...prev, BOOT_LOGS[currentIndex]]);
+                currentIndex++;
+            }
         }, 120);
 
         return () => clearInterval(interval);
@@ -105,7 +118,10 @@ const BootSequence: React.FC<BootSequenceProps> = ({ onComplete }) => {
 
     // Auto-scroll to bottom as lines appear
     useEffect(() => {
-        bottomRef.current?.scrollIntoView({ behavior: 'instant' });
+        if (bottomRef.current) {
+            // behavior: 'auto' is safer than 'instant' as 'instant' is not a standard value for scrollIntoView
+            bottomRef.current.scrollIntoView({ behavior: 'auto', block: 'end' });
+        }
     }, [logs]);
 
     return (
@@ -118,7 +134,7 @@ const BootSequence: React.FC<BootSequenceProps> = ({ onComplete }) => {
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0, scale: 1.1 }}
                         transition={{ duration: 0.4 }}
-                        style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+                        style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%' }}
                     >
                         {/* Kali Logo */}
                         <svg
@@ -142,7 +158,7 @@ const BootSequence: React.FC<BootSequenceProps> = ({ onComplete }) => {
                     >
                         {logs.map((log, i) => (
                             <div
-                                key={i}
+                                key={`${log}-${i}`}
                                 className="boot-log-line"
                             >
                                 <BootLine log={log} />
@@ -150,7 +166,7 @@ const BootSequence: React.FC<BootSequenceProps> = ({ onComplete }) => {
                         ))}
                         {/* Blinking cursor at the end */}
                         <span className="cursor-blink" style={{ color: '#c0c0c0' }}>▊</span>
-                        <div ref={bottomRef} />
+                        <div ref={bottomRef} style={{ height: 20 }} />
                     </motion.div>
                 )}
             </AnimatePresence>

@@ -248,7 +248,7 @@ export const useOSStore = create<OSStore>((set, get) => ({
 
     // App Grid
     showAppGrid: false,
-    toggleAppGrid: () => void set({ showAppGrid: !get().showAppGrid, showActivities: false, showQuickSettings: false }),
+    toggleAppGrid: () => set({ showAppGrid: !get().showAppGrid, showActivities: false, showQuickSettings: false }),
 
     // Matrix Rain
     showMatrix: false,

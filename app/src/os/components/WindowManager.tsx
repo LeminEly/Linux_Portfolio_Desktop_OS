@@ -9,7 +9,6 @@ import {
     Cpu,
     Mail,
     FileText,
-    Shield,
     Settings as SettingsIcon,
     X, Minus, Maximize2, Minimize2
 } from 'lucide-react';

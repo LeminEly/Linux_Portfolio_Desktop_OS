@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { PROFILE } from '../../data/content';
-import { FileText, Download, ExternalLink, ZoomIn, ZoomOut, ChevronLeft, ChevronRight } from 'lucide-react';
+import { FileText, Download, ExternalLink, ZoomIn, ZoomOut } from 'lucide-react';
 
 interface CVViewerProps {
     windowId: string;

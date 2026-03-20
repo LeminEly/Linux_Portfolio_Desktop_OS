@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Monitor, RefreshCw, FolderPlus, Settings, Image } from 'lucide-react';
+import { RefreshCw, FolderPlus, Settings, Image } from 'lucide-react';
 import { useOSStore } from '../../store/useOSStore';
 
 interface ContextMenuProps {

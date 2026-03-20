@@ -115,8 +115,8 @@ const FileManager: React.FC<FileManagerProps> = () => {
                             className="fm-item"
                             onDoubleClick={() => handleItemClick(item)}
                         >
-                            <div style={{ color: item.color }}>
-                                {React.cloneElement(item.icon as React.ReactElement, { size: 40 })}
+                            <div style={{ color: item.color, fontSize: 40, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                {item.icon}
                             </div>
                             <span className="fm-item-label">{item.name}</span>
                         </div>

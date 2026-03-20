@@ -4,7 +4,7 @@ import { useOSStore } from '../../store/useOSStore';
 import { X, Info } from 'lucide-react';
 
 const NotificationToast: React.FC = () => {
-    const { notifications, clearNotifications } = useOSStore();
+    const { notifications } = useOSStore();
     const [visible, setVisible] = useState<string | null>(null);
 
     useEffect(() => {
