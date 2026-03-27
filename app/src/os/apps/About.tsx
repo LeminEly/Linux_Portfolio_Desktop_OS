@@ -28,7 +28,7 @@ const AboutApp: React.FC<AboutAppProps> = () => {
         ``,
         `  interests: [`,
         `    "Cybersecurity & Ethical Hacking",`,
-        `    "Full-Stack Web Development",`,
+        `    "Full-Stack Web , Mobile Development",`,
         `    "Linux & Open Source",`,
         `    "Building secure applications",`,
         `  ],`,

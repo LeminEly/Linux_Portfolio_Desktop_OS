@@ -1,6 +1,11 @@
 import { create } from 'zustand';
 import type { OSPhase, WindowState, Notification } from '../types';
 
+export interface TerminalEntry {
+    type: 'input' | 'output';
+    content: string;
+}
+
 interface OSStore {
     // OS Phase
     phase: OSPhase;
@@ -62,6 +67,19 @@ interface OSStore {
     // Sound
     soundEnabled: boolean;
     toggleSound: () => void;
+
+    // Terminal persistence
+    terminalHistory: TerminalEntry[];
+    terminalCommandHistory: string[];
+    setTerminalHistory: (history: TerminalEntry[]) => void;
+    appendTerminalHistory: (entries: TerminalEntry[]) => void;
+    clearTerminalHistory: () => void;
+    setTerminalCommandHistory: (history: string[]) => void;
+
+    // BSOD
+    showBSOD: boolean;
+    triggerBSOD: () => void;
+    dismissBSOD: () => void;
 }
 
 export const useOSStore = create<OSStore>((set, get) => ({
@@ -257,4 +275,17 @@ export const useOSStore = create<OSStore>((set, get) => ({
     // Sound
     soundEnabled: true,
     toggleSound: () => set({ soundEnabled: !get().soundEnabled }),
+
+    // Terminal persistence
+    terminalHistory: [],
+    terminalCommandHistory: [],
+    setTerminalHistory: (history) => set({ terminalHistory: history }),
+    appendTerminalHistory: (entries) => set({ terminalHistory: [...get().terminalHistory, ...entries] }),
+    clearTerminalHistory: () => set({ terminalHistory: [] }),
+    setTerminalCommandHistory: (history) => set({ terminalCommandHistory: history }),
+
+    // BSOD
+    showBSOD: false,
+    triggerBSOD: () => set({ showBSOD: true }),
+    dismissBSOD: () => set({ showBSOD: false }),
 }));

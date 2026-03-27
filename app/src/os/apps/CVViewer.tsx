@@ -8,7 +8,7 @@ interface CVViewerProps {
 
 const CVViewer: React.FC<CVViewerProps> = () => {
     const [zoom, setZoom] = useState(100);
-    const PDF_URL = '/cv/cv.pdf';
+    const PDF_URL = 'cv/cv.pdf';
 
     const handleZoomIn = () => setZoom(z => Math.min(z + 10, 200));
     const handleZoomOut = () => setZoom(z => Math.max(z - 10, 50));

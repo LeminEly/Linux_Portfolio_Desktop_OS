@@ -28,10 +28,7 @@ const TopBar: React.FC = () => {
         <div className="top-bar" onClick={(e) => e.stopPropagation()}>
             {/* Left — Activities */}
             <div className="top-bar-left">
-                <button className="top-bar-btn" onClick={toggleActivities} style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style={{ filter: 'drop-shadow(0 0 4px rgba(73, 174, 230, 0.4))' }}>
-                        <path d="M12,2L4.5,20.29L5.21,21L12,18L18.79,21L19.5,20.29L12,2Z" />
-                    </svg>
+                <button className="top-bar-btn" onClick={toggleActivities}>
                     Apps
                 </button>
                 <button className="top-bar-btn">

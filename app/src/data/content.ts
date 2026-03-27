@@ -10,7 +10,11 @@ export const PROFILE: Profile = {
     linkedin: "https://www.linkedin.com/in/lemin-ely-24x0x/",
     location: "Mauritania",
     avatar: "/avatar/profile.png",
-    bio: "Full-Stack Developer and Cybersecurity Enthusiast (License student @ SUPNUM). Ranked #4 Nationally on TryHackMe (Top 2% Worldwide). I have collaborated on over 30 projects, specializing in MERN stack, AI/ML, and Offensive Security. Passionate about Mathematics, Physics, and Innovation.",
+    bio: `Full-Stack Developer and Cybersecurity Enthusiast (License student @ SUPNUM).
+    Ranked #4 Nationally on TryHackMe (Top 2% Worldwide). 
+    I have collaborated on over 30 projects, 
+    specializing in MERN stack, AI/ML, and Offensive Security. 
+    Passionate about Mathematics, Physics, and Innovation.`,
     cv: "/cv/cv.pdf",
 };
 
