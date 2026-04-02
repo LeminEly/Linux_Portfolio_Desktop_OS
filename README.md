@@ -9,7 +9,7 @@
 ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚═╝   ╚═╝      ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚═╝      ╚═════╝ ╚══════╝╚═╝ ╚═════╝ 
 ```
 
-# 🖥️ Kali Portfolio OS
+#  Kali Portfolio OS
 
 ### *A browser-based Kali Linux desktop — my interactive portfolio*
 
@@ -27,7 +27,7 @@
 
 ---
 
-## 📸 Preview
+## Preview
 
 | Login Screen | Desktop |
 |---|---|
@@ -37,50 +37,50 @@
 
 ---
 
-## 🧠 Concept
+## Concept
 
 Instead of building a traditional portfolio website, I turned my **desktop into the portfolio itself**.
 
 Everything you see is what I actually use — the Kali wallpaper, the GNOME panel, the terminal with neofetch, the system monitor with real skill metrics. It's designed to feel like you're sitting at **my actual machine**.
 
 When you open the portfolio:
-1. 🔁 **Boot** — a real Kali Linux boot log sequence scrolls across the screen
-2. 🔒 **Login** — a GNOME-style lock screen with blurred wallpaper
-3. 🖥️ **Desktop** — clean Kali desktop with a custom dock
-4. 🚀 **Explore** — open apps, browse projects, read about me, launch the terminal
+1.  **Boot** — a real Kali Linux boot log sequence scrolls across the screen
+2.  **Login** — a GNOME-style lock screen with blurred wallpaper
+3.  **Desktop** — clean Kali desktop with a custom dock
+4.  **Explore** — open apps, browse projects, read about me, launch the terminal
 
 ---
 
-## ✨ Features
+##  Features
 
 ### OS Core
 | Feature | Description |
 |---|---|
-| 🔁 Boot Sequence | Authentic Kali Linux boot log animation |
-| 🔒 Login Screen | GNOME lock screen with SVG background blur |
-| 🖥️ Desktop | Kali wallpaper, GNOME top bar, custom dock |
-| 🪟 Window Manager | Drag, resize, minimize, maximize, multi-window |
-| 📢 Notifications | Animated toast notification system |
-| 🖱️ Context Menu | Right-click desktop menu |
-| 📱 App Grid | Full applications launcher overlay |
-| ⚙️ Quick Settings | System tray panel |
+|  Boot Sequence | Authentic Kali Linux boot log animation |
+|  Login Screen | GNOME lock screen with SVG background blur |
+|  Desktop | Kali wallpaper, GNOME top bar, custom dock |
+|  Window Manager | Drag, resize, minimize, maximize, multi-window |
+|  Notifications | Animated toast notification system |
+|  Context Menu | Right-click desktop menu |
+|  App Grid | Full applications launcher overlay |
+|  Quick Settings | System tray panel |
 
 ### Applications
 | App | Description |
 |---|---|
-| 💻 Terminal | xterm.js powered terminal with `neofetch`, `help`, `projects`, `skills`, custom easter eggs |
-| 🌐 Browser | Portfolio homepage with featured projects |
-| 📁 File Manager | Kali-style file explorer simulation |
-| 🧑 About Me | Syntax-highlighted code editor showing my profile |
-| 🛡️ Projects | GitHub-style project browser with categories |
-| 📊 System Monitor | Live-animated skill bars by category |
-| 📧 Contact | Email client UI with direct mailto link |
-| 📄 CV Viewer | Modern two-column PDF-style resume |
-| ⚙️ Settings | GNOME Settings panel with system info |
+|  Terminal | xterm.js powered terminal with `neofetch`, `help`, `projects`, `skills`, custom easter eggs |
+|  Browser | Portfolio homepage with featured projects |
+|  File Manager | Kali-style file explorer simulation |
+|  About Me | Syntax-highlighted code editor showing my profile |
+|  Projects | GitHub-style project browser with categories |
+|  System Monitor | Live-animated skill bars by category |
+|  Contact | Email client UI with direct mailto link |
+|  CV Viewer | Modern two-column PDF-style resume |
+|  Settings | GNOME Settings panel with system info |
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
@@ -101,7 +101,7 @@ No unnecessary framework bloat. Every pixel crafted in **pure CSS** for maximum 
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 - Node.js `>= 18`
@@ -133,7 +133,7 @@ npm run build
 
 ---
 
-## 🗂️ Project Structure
+##  Project Structure
 
 ```
 app/
@@ -156,7 +156,7 @@ app/
 
 ---
 
-## 🎨 Customization
+##  Customization
 
 Everything personal lives in one file:
 
@@ -173,7 +173,7 @@ Edit your:
 
 ---
 
-## 💻 Terminal Commands
+##  Terminal Commands
 
 Open the terminal app and try:
 
@@ -191,7 +191,7 @@ sudo rm -rf / # Try it 😄
 
 ---
 
-## 📂 Highlighted Projects
+##  Highlighted Projects
 
 Projects featured in this portfolio:
 
@@ -210,18 +210,18 @@ Projects featured in this portfolio:
 
 ---
 
-## 🏆 Achievements
+##  Achievements
 
 ```
-🥇 1st Place — Nuit de l'Info (National Gold Medal)
-🎯 TryHackMe Rank #4 Nationally — Top 2% Worldwide
-🏆 Team Leader — SUPNUM Ramadan Challenge (Winner)
-🔗 Active on Hedera Blockchain, CTF Time, and more
+ 1st Place — Nuit de l'Info (National Gold Medal)
+ TryHackMe Rank #4 Nationally — Top 2% Worldwide
+ Team Leader — SUPNUM Ramadan Challenge (Winner)
+ Active on Hedera Blockchain, CTF Time, and more
 ```
 
 ---
 
-## 👤 About Me
+##  About Me
 
 ```
 leminEly@kali:~$ cat whoami.txt
@@ -239,7 +239,7 @@ leminEly@kali:~$ cat whoami.txt
 
 ---
 
-## 📜 License
+##  License
 
 This project is licensed under the **Apache License 2.0**.  
 You are free to use, fork, and adapt it — just give credit.
@@ -254,7 +254,7 @@ https://www.apache.org/licenses/LICENSE-2.0
 
 <div align="center">
 
-Made with ❤️ and ☕ by **[Lemin Ely](https://github.com/LeminEly)**
+Made with ❤️ and fatigue by **[Lemin Ely](https://github.com/LeminEly)**
 
 *Built to feel like a real desktop. Because why not.*
 
